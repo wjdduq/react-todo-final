@@ -5,16 +5,17 @@ import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
 function App() {
-  // const [GETTER, SETTER] = useState(초// 할 일 배열 선언 및 useState를 사용하여 상태 관리
+  // const [GETTER, SETTER] = useState()
+  // 할 일 배열 선언 및 useState를 사용하여 상태 관리
   const [todos, setTodos] = useState(() => {
-    // 로컬 스토리지에서 초기값을 가져옵니다.
+    // 로컬 스토리지에서 초기값 가져오기
     const savedTodos = localStorage.getItem('todos');
     //  localStorage에 있으면 쓰고 없으면 빈 배열로 초기화
     return savedTodos ? JSON.parse(savedTodos) : [];
   });
 
   useEffect(() => {
-    // todos가 변경될 때마다 로컬 스토리지에 저장합니다.
+    // todos가 변경될 때마다 로컬 스토리지에 저장
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
@@ -65,7 +66,7 @@ function App() {
 
   // 일정 업데이트 메서드 선언
   function updateTodoItem(id, data) {
-    // 일정 id를 비교하여 업데이트 대상 서치치
+    // 일정 id를 비교하여 업데이트 대상 서치
     const todoIndex = todos.findIndex((todo) => todo.id === id);
     // 찾을 수 없다면(return -1)
     if (todoIndex === -1) {

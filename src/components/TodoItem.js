@@ -1,15 +1,18 @@
 // id, text, completed
 function TodoItem(props) {
 
+    // 상속받은 메서드를 사용하여 지정된 id 항목을 삭제하는 메서드 선언
     function handleDelete() {
         props.onDelete(props.item.id)
     }
 
+    // 상속받은 메서드를 사용하여 체크박스 토글 컨트롤하는 메서드 선언
     function handleToggle() {
         const newCompleted = !props.item.completed;
         props.onUpdate(props.item.id, { completed: newCompleted });
     }
 
+    // 현재 날짜와 일정간의 차이를 계산하여 리턴해주는 메서드 선언
     function handleDead() {
         const deadLineDate = new Date(props.item.dead);
         const today = new Date();
