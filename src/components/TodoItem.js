@@ -19,16 +19,24 @@ function TodoItem(props) {
         return isDeadlineClose;
     }
 
-    
+
 
     return (
         <div className="todo-items">
             <p style={{ color: handleDead() ? "red" : "black", fontWeight: handleDead() ? "bold" : "" }}>{props.item.dead}</p>
-            {handleDead() && <span style={{ marginLeft: "8px", fontWeight: "bold", color:"red" }}>마감임박!!</span>}
+            {handleDead() && <span style={{ marginLeft: "8px", fontWeight: "bold", color: "red" }}>마감임박!!</span>}
             <p>{props.item.text}</p>
             <p style={{ "color": props.item.completed ? "green" : "black" }}>완료 여부: {props.item.completed ? "완료" : "미완료"}</p>
             <div className="todo-item-buttons">
-                <button className="item-btn" onClick={handleToggle}>{props.item.completed ? "미완료로 변경" : "완료로 변경"}</button>
+                <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
+                    <input
+                        type="checkbox"
+                        checked={props.item.completed}
+                        onChange={handleToggle}
+                        style={{ width: "18px", height: "18px" }}
+                    />
+                    {props.item.completed ? "완료" : "미완료"}
+                </label>
                 <button className="item-btn" onClick={handleDelete}>삭제</button>
             </div>
         </div>
