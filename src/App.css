@@ -1,38 +1,126 @@
+/* 전체 배경과 폰트 */
+body {
+    background: #f7f8fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url("./image/img.jpg");
+}
+
+/* App 전체 컨테이너 */
 .App {
-  text-align: center;
+    max-width: 900px;
+    min-height: 80vh;
+    margin: 60px auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 48px 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow-y: auto; /* 내부 스크롤 */
+    height: 80vh;     /* 원하는 높이로 조정 */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* TodoForm 컨테이너 */
+.App > div {
+    width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 제목 */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 32px;
+    font-size: 2.4rem;
+    letter-spacing: 2px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* 폼 스타일 */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+/* 입력창 스타일 */
+input[type="text"], input[type="date"] {
+    padding: 14px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: border 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="text"]:focus, input[type="date"]:focus {
+    border: 1.5px solid #4f8cff;
+    outline: none;
+}
+
+/* 버튼 스타일 */
+button[type="submit"] {
+    padding: 12px 0;
+    background: #4f8cff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+    background: #2563eb;
+}
+
+.item-btn {
+    min-width: 120px;
+    padding: 12px 0;
+    background: #4f8cff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-right: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.item-btn:last-child {
+    margin-right: 0;
+}
+
+.item-btn:hover {
+    background: #2563eb;
+}
+
+.todo-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.todo-item-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
 }
